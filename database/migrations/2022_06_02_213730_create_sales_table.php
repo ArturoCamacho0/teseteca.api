@@ -13,7 +13,7 @@ return new class extends Migration
             $table->float('total');
             $table->timestamps();
 
-            $table->foreignId('user_id')->constrained()->onDelete('set null');
+            $table->foreignId('reservation_id')->constrained();
         });
     }
 

@@ -12,6 +12,10 @@ return new class extends Migration
             $table->id();
             $table->smallInteger('quantity');
             $table->tinyInteger('status')->default(0);
+            $table->date('date');
+            $table->string('hour');
+
+            $table->timestamps();
 
             $table->foreignId('function_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

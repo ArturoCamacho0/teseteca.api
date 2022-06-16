@@ -12,6 +12,8 @@ return new class extends Migration
             $table->foreignId('room_id')->constrained()->onDelete('cascade');
             $table->foreignId('seat_id')->constrained()->onDelete('cascade');
 
+            $table->timestamps();
+
             $table->primary(['room_id', 'seat_id']);
         });
     }

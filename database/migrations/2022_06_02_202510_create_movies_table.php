@@ -13,9 +13,13 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('poster');
+            $table->boolean('status');
+            $table->date('date');
 
-            $table->foreignId('category_id')->constrained()->onDelete('set null');
-            $table->foreignId('classification_id')->constrained()->onDelete('set null');
+            $table->timestamps();
+
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('classification_id')->constrained();
         });
     }
 

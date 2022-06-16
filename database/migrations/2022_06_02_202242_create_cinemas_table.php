@@ -11,6 +11,8 @@ return new class extends Migration
         Schema::create('cinemas', function (Blueprint $table) {
             $table->id();
             $table->string('location', 100);
+
+            $table->timestamps();
         });
     }
 

@@ -14,11 +14,22 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reservations_rooms_seats', function (Blueprint $table) {
-            $table->foreignId('reservation_id')->constrained()->onDelete('cascade');
-            $table->foreignId('room_id')->constrained()->onDelete('cascade');
-            $table->foreignId('seat_id')->constrained()->onDelete('cascade');
+            $table->foreignId('reservation_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade');
 
-            $table->primary(['reservation_id', 'room_id', 'seat_id']);
+            $table->foreignId('room_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade');
+
+            $table->foreignId('seat_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 

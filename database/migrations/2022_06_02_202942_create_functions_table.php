@@ -12,6 +12,8 @@ return new class extends Migration
             $table->id();
             $table->float('price');
 
+            $table->timestamps();
+
             $table->foreignId('movie_id')->constrained()->onDelete('cascade');
             $table->foreignId('cinema_id')->constrained()->onDelete('cascade');
         });
