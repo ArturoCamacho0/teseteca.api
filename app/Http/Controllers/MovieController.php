@@ -13,7 +13,7 @@ class MovieController extends Controller
         $movies = Movie::where('release_date', '>=', date('Y-m-d'))
             ->orderBy('release_date', 'asc')
             ->get();
-        
+
         return response()->json($movies, 200);
     }
 
