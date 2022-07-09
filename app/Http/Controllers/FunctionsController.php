@@ -68,4 +68,12 @@ class FunctionsController extends Controller
 
         return response()->json(null, 204);
     }
+
+    public function getByMovie($movie_id): \Illuminate\Http\JsonResponse|array
+    {
+        $functions = FunctionModel::with(['hours.dates', 'dates.hours', 'cinema', 'movie'])
+            ->where('movie_id', $movie_id)->get();
+
+        return response()->json($functions, 200);
+    }
 }

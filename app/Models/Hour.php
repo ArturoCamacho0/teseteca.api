@@ -20,11 +20,11 @@ class Hour extends Model
                 ->withPivot('date_id');
     }
 
-    public function hours(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function dates(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Date::class,
             'functions_dates_hours',
-            'date_id',
-            'hour_id')->withPivot('function_id');
+            'hour_id',
+            'date_id')->withPivot('function_id');
     }
 }

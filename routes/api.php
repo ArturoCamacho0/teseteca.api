@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FunctionsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,11 @@ route::get('classifications/{id}', [\App\Http\Controllers\ClassificationControll
 
 route::get('reservations', [\App\Http\Controllers\ReservationController::class, 'index']);
 route::get('reservations/{id}', [\App\Http\Controllers\ReservationController::class, 'show']);
+route::get('reservations/user/{user_id}', [\App\Http\Controllers\ReservationController::class, 'getByUser']);
 
 route::get('functions', [\App\Http\Controllers\FunctionsController::class, 'index']);
 route::get('functions/{id}', [\App\Http\Controllers\FunctionsController::class, 'show']);
+route::get('functions/movie/{movie_id}', [\App\Http\Controllers\FunctionsController::class, 'getByMovie']);
 
 route::get('cinemas', [\App\Http\Controllers\CinemaController::class, 'index']);
 route::get('cinemas/{id}', [\App\Http\Controllers\CinemaController::class, 'show']);

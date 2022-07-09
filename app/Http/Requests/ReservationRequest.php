@@ -25,11 +25,9 @@ class ReservationRequest extends FormRequest
     {
         return [
             'quantity' => 'required|integer|min:1',
-            'status' => 'required|string|in:pending,confirmed,cancelled',
+            'status' => 'required|string',
             'function_id' => 'required|integer|exists:functions,id',
             'user_id' => 'required|integer|exists:users,id',
-            'room' => 'required|integer|exists:rooms,id',
-            'seats' => 'required|array|exists:seats,id',
             'date' => 'required|integer|exists:dates,id',
             'hour' => 'required|integer|exists:hours,id',
         ];
